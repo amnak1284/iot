@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Light Button</title>
+</head>
+<body>
+	<form id="theform" action="/" method="POST">
+		<input type="submit" name="button" value="start light">
+	</form>
+
+	<script>
+
+document.getElementById('theform').addEventListener('submit', function(e) {
+	e.preventDefault();
+	var xhr = new XMLHttpRequest();
+	xhr.readystatechange = function() {
+		if (this.readyState === XMLHttpRequest.DONE) {
+			console.log('blinked');
+		}
+	}
+
+	xhr.open('POST', '/', true);
+	xhr.send(null);
+});
+	</script>
+
+</body>
+</html>
